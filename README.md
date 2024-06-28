@@ -57,7 +57,6 @@ This project leverages a modern Android development stack, including:
 * **Android SDK:** The core framework for building Android applications.
 * **Various Jetpack Libraries:** Additional libraries from the Jetpack suite to enhance app functionality and development efficiency.
 
-## Contributing
 
 ## Contributing
 
