@@ -105,8 +105,10 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 // Start your SupportActivity here
             }
             R.id.nav_logout -> {
-                // Handle logout (e.g., clear user session, navigate to LoginActivity)
-                val intent = Intent(this, LoginActivity::class.java)
+                // Handle logout (e.g., add clearUserSession() function to clear user session,
+                // navigate to MainActivity, and finish HomeScreenActivity)
+                // in onResume() to check if user is still logged in)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish() // Finish HomeScreenActivity
             }
