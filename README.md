@@ -1,4 +1,6 @@
-# ConstructionSite
+# Construction Site Management App. 
+
+For the Owner, Crew, Teams, and contractor to use the on-site app. Live 
 
 This Android application is designed to streamline construction site management, helping foremen, project managers, and workers efficiently track inventory, manage tasks, and coordinate activities. It aims to improve overall project efficiency and communication on construction sites.
 
