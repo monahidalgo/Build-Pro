@@ -97,6 +97,10 @@ Contributions are welcome and greatly appreciated! If you'd like to contribute t
 
    - Write unit tests for any new functionality you introduce.
    - Ensure all existing tests pass before submitting a pull request.
+   - Ensure that your code passes the code quality checks.
+## Contributions
+
+This project is not currently accepting contributions.
 
 **Communication:**
 
