@@ -60,16 +60,54 @@ This project leverages a modern Android development stack, including:
 * **Various Jetpack Libraries:** Additional libraries from the Jetpack suite to enhance app functionality and development efficiency.
 
 
-## Contributions
+## Contributing
 
-This project is not currently accepting contributions.
+Contributions are welcome and greatly appreciated! If you'd like to contribute to this project, please follow these guidelines:
 
+**1. Fork the Repository:**
+
+   - Fork this repository to your own GitHub account.
+
+**2. Create a Branch:**
+
+   - Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`
+
+**3. Make Changes:**
+
+   - Implement your changes, following the project's coding style and conventions.
+   - Write clear and concise commit messages.
+
+**4. Test Thoroughly:**
+
+   - Ensure your changes do not introduce any new issues and pass all existing tests.
+
+**5. Submit a Pull Request:**
+
+   - Push your changes to your forked repository.
+   - Create a pull request from your branch to the `main` branch of this repository.
+   - Provide a detailed description of your changes and the problem they solve.
+
+**Code Style:**
+
+   - Follow the project's existing code style (e.g., Kotlin coding conventions).
+   - Use meaningful variable and function names.
+   - Add comments to explain complex logic.
+
+**Testing:**
+
+   - Write unit tests for any new functionality you introduce.
+   - Ensure all existing tests pass before submitting a pull request.
+
+**Communication:**
+
+   - If you have any questions or need clarification, open an issue or discuss it in the pull request.
 ## License
 
 [Specify the license under which your project is distributed, e.g., MIT, Apache 2.0]
 
+## Contact
 
-## Owner
-
-Mona Hidalgo Mobile Developer
+Mona Hidalgo 
 monaego@live.com
+
+       
