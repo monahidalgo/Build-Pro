@@ -1,4 +1,4 @@
-# Construction Site Management App. 
+# Build Pro is a Construction Site Management App. 
 
 For the Owner, Crew, Teams, and contractor to use the on-site app. Live 
 
