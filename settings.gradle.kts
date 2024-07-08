@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Construction Site"
+rootProject.name = "Build Pro"
 include(":app")

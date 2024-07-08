@@ -1,4 +1,4 @@
-package com.example.constructionsite
+package com.example.buildpro
 
 import org.junit.Test
 

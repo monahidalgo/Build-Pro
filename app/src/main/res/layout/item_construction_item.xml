@@ -3,7 +3,7 @@
     <data>
         <variable
             name="constructionItem"
-            type="com.example.constructionsite.ConstructionItem" />
+            type="com.example.buildpro.ConstructionItem" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
