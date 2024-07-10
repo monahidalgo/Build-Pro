@@ -1,4 +1,4 @@
-package com.example.constructionsite
+package com.example.buildpro
 
 import android.content.Intent
 import android.os.Bundle
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
             // Validate user input
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter a Username and Password", Toast.LENGTH_LONG)
+                Toast.makeText(this, "Please enter a Username and Password", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, HomeScreenActivity::class.java)
                 startActivity(intent) // Start HomeScreenActivity on successful login
             } else {
-                Toast.makeText(this, "Invalid Username or Password",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Invalid Yername or password", Toast.LENGTH_LONG).show()
             }
         }
 

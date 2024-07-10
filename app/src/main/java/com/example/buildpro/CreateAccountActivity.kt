@@ -1,11 +1,12 @@
-package com.example.constructionsite
+package com.example.buildpro
+
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.constructionsite.databinding.ActivityCreateAccountBinding
-import com.example.constructionsite.databinding.ActivityCreateAccountBinding.inflate
+import com.example.buildpro.databinding.ActivityCreateAccountBinding
+import com.example.buildpro.databinding.ActivityCreateAccountBinding.inflate
 
 
 class CreateAccountActivity : AppCompatActivity() {

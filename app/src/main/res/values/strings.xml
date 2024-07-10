@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Construction Site</string>
+    <string name="app_name">Build Pro</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -23,7 +23,7 @@
     <string name="item_name">Item Name</string>
     <string name="don_t_have_an_account_create_one">Don\'t have an account? Create one</string>
     <string name="photos_amp_notes"><![CDATA[Photos & Notes]]></string>
-    <string name="equiptment">Equipment</string>
+    <string name="equipment">Equipment</string>
     <string name="order_items">Order Items</string>
     <string name="projects">Projects</string>
     <string name="schedule">Schedule</string>

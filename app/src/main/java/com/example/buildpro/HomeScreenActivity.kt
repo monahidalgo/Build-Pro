@@ -1,24 +1,21 @@
-package com.example.constructionsite
+package com.example.buildpro
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,9 +29,9 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         setContentView(R.layout.home_screen)
 
         drawerLayout = findViewById(R.id.drawer_layout)
-        projectRecyclerView = findViewById(R.id.projectRecyclerView) // Make sure you have this in your layout
+        projectRecyclerView = findViewById(R.id.projectRecyclerView)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
@@ -53,21 +50,19 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val profilePhoneTextView = headerView.findViewById<TextView>(R.id.profilePhoneTextView)
         val profileEmailTextView = headerView.findViewById<TextView>(R.id.profileEmailTextView)
 
-        profileNameTextView.text = "Mona Hidalgo " // Replace with actual user name
+        profileNameTextView.text = "Mona Hidalgo" // Replace with actual user name
         profilePhoneTextView.text = "Phone: 323-400-0421" // Replace with actual phone
         profileEmailTextView.text = "Email: mona@bittleco.com" // Replace with actual email
 
         // Set up RecyclerView
         projectAdapter = ProjectAdapter(projects) { projectName ->
-            // Handle project click (you can open a new activity with project details here)
-            // For now, just a Toast message
             Toast.makeText(this, "Clicked on project: $projectName", Toast.LENGTH_SHORT).show()
         }
         projectRecyclerView.adapter = projectAdapter
         projectRecyclerView.layoutManager = LinearLayoutManager(this)
 
         // Floating Action Button for adding new projects
-        val fab: FloatingActionButton = findViewById(R.id.floatingActionButton) // Make sure you have this in your layout
+        val fab: FloatingActionButton = findViewById(R.id.floatingActionButton)
         fab.setOnClickListener {
             showCreateProjectDialog()
         }
@@ -94,28 +89,28 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         when (item.itemId) {
             R.id.nav_project_name -> {
                 // Navigate to Project Name screen
-                // Start your ProjectNameActivity here (create a new activity for it)
             }
             R.id.nav_change_password -> {
                 // Navigate to Change Password screen
-                // Start your ChangePasswordActivity here
             }
             R.id.nav_support -> {
                 // Navigate to Support screen
-                // Start your SupportActivity here
             }
             R.id.nav_logout -> {
-                // Handle logout (e.g., add clearUserSession() function to clear user session,
-                // navigate to MainActivity, and finish HomeScreenActivity)
-                // in onResume() to check if user is still logged in)
+                // Handle logout
+                clearUserSession()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() // Finish HomeScreenActivity
+                finish()
             }
         }
 
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun clearUserSession() {
+        // Implement your logic to clear user session
     }
 
     override fun onBackPressed() {
@@ -126,8 +121,3 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         }
     }
 }
-
-
-
-
-// ProjectAdapter class (inside HomeScreenActivity.kt for simplicity)

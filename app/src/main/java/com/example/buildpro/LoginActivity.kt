@@ -1,12 +1,10 @@
-package com.example.constructionsite
+package com.example.buildpro
 
-import DashboardScreen
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.constructionsite.databinding.ActivityLoginBinding
+import com.example.buildpro.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -22,8 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (validateLogin(username, password)) {
                 // Successful login, go to the next activity
-
-                val intent = Intent(this, HomeScreenActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
                 // Unsuccessful login, show error message
@@ -33,8 +30,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateLogin(username: String, password: String): Boolean {
-
         // Example validation, replace with your actual validation logic
-        return username == "correctUsername" && password == "correctPassword"
+        return username == "admin" && password == "password"
     }
 }

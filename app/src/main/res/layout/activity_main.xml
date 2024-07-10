@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="#EEEEEE"
         android:padding="16dp"
-        tools:context=".MainActivity">
+        tools:context=".LoginActivity">
 
 
         <ImageView
@@ -26,7 +26,7 @@
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/site_icon_description"
             android:cropToPadding="true"
-            android:src="@drawable/compasslogo"
+            android:src="@drawable/team"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
