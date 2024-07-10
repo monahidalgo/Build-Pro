@@ -1,25 +1,26 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
     id("kotlin-parcelize")
 
 }
 
 android {
-    namespace = "com.example.buildpro"
-    compileSdk = 34 // Update to the latest stable version
+    namespace = "com.example.constructionsite"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.buildpro"
+        applicationId = "com.example.constructionsite"
         minSdk = 23
-        targetSdk = 34 // Update to the latest stable version
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    buildTypes { // Single buildTypes block
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -27,8 +28,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+        // Custom debug type
         create("customDebugType") {
             isDebuggable = true
+            // Add other custom debug configurations here
         }
     }
 
@@ -44,11 +47,11 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+
     }
 }
 
 dependencies {
-   implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.cardview)
@@ -56,6 +59,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.core.ktx.v170)
     implementation(libs.androidx.appcompat.v141)
     implementation(libs.material.v150)
     implementation(libs.androidx.activity.ktx)
@@ -67,4 +71,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit.v113)
     androidTestImplementation(libs.androidx.espresso.core.v340)
+    implementation(libs.material.v1xx)
 }
