@@ -73,7 +73,13 @@ This project is not currently accepting contributions.
 
 ## Contact
 
-Mona Hidalgo 
-monaego@live.com
+Should you have any inquiries about this application, or if you require a mobile application to be developed, don't hesitate to connect:
+
+- Email: your-email@example.com
+- LinkedIn: Mona Hidalgo
+- Twitter: @MonaHidalgo1
+
+
+Looking forward to hearing from you!
 
        
