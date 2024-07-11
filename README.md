@@ -24,7 +24,7 @@ This Android application is designed to streamline construction site management,
 
 ### Steps
 
-1. Clone the repository: `git clone https://github.com/yourusername/ConstructionSite.git`
+1. Clone the repository: `git clone (https://github.com/yourusername/Build-Pro.git)`
 2. Open the project in Android Studio.
 3. Build and run the application on an emulator or physical device.
 
