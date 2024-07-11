@@ -1,9 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
     id("kotlin-parcelize")
-
 }
 
 android {
@@ -12,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.constructionsite"
-        minSdk = 23
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -20,7 +18,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes { // Single buildTypes block
+    packagingOptions {
+        exclude("**/car-ui-lib-2.6.0/res/values/values.xml")
+        exclude("**/fragment-1.8.1/res/values/values.xml")
+        exclude("**/core-1.13.1/res/values/values.xml")
+        exclude("**/material-1.5.0/res/values/values.xml")
+        exclude("**/activity-1.9.0/res/values/values.xml")
+        // ... add other exclusions if needed
+    }
+
+    buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -28,7 +35,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-        // Custom debug type
         create("customDebugType") {
             isDebuggable = true
             // Add other custom debug configurations here
@@ -47,7 +53,6 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
-
     }
 }
 
@@ -68,8 +73,12 @@ dependencies {
     implementation(libs.androidx.room.common.v242)
     implementation(libs.androidx.room.ktx.v242)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.car.ui.lib)
+    implementation(libs.support.annotations)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit.v113)
     androidTestImplementation(libs.androidx.espresso.core.v340)
     implementation(libs.material.v1xx)
+    implementation(libs.androidx.fragment)
+    // ... other dependencies
 }

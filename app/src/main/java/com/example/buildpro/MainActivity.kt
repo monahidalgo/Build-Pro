@@ -7,7 +7,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buildpro.R
+import androidx.appcompat.widget.Toolbar
+import com.example.constructionsite.CreateAccountActivity
+import com.example.constructionsite.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, HomeScreenActivity::class.java)
                 startActivity(intent) // Start HomeScreenActivity on successful login
             } else {
-                Toast.makeText(this, "Invalid Yername or password", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
             }
         }
 

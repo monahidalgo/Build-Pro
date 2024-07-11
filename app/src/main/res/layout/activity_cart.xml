@@ -14,11 +14,12 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16.dp"
-        android:contentDescription="TODO"
-        android:src="@drawable/site"
+        android:contentDescription="@string/add_avatar"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

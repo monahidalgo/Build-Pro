@@ -1,14 +1,14 @@
 package com.example.buildpro
 
+/*
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
 import androidx.room.Update
+import com.example.constructionsite.ConstructionItem
 
 @Dao
 interface ConstructionItemDao {
-    @Query("SELECT * FROM construction_items")
+    @Query("SELECT * FROM ConstructionItem")
     fun getAllItems(): List<ConstructionItem>
 
     @Insert
@@ -20,3 +20,4 @@ interface ConstructionItemDao {
     @Delete
     fun deleteItem(item: ConstructionItem)
 }
+*/

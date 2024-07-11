@@ -1,11 +1,11 @@
 package com.example.buildpro
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
+import kotlinx.coroutines.launch
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,19 +14,77 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.example.constructionsite.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
-class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+// Data class for Project
+
+
+// Room Database
+@Database(entities = [Project::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun projectDao(): ProjectDao
+}
+
+class ProjectDao {
+    fun deleteProject(project: Project) {
+
+
+    }
+
+    fun getAllProjects(): Collection<Project> {
+            TODO("Not yet implemented")
+
+    }
+
+    fun insertProject(project: Project): Any {
+        TODO("Not yet implemented")
+
+    }
+
+}
+
+/*
+// DAO for Project
+interface ProjectDao {
+    @androidx.room.Query("SELECT * FROM ConstructionItem")
+    suspend fun getAllProjects(): List<Project>
+
+    @androidx.room.Insert
+    suspend fun insertProject(project: Project): Long
+
+    @androidx.room.Delete
+    suspend fun deleteProject(project: Project)
+}
+*/
+abstract class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    abstract val ProjectToolsActivity: Unit
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var projectRecyclerView: RecyclerView
-    private val projects = mutableListOf<String>()
+    private val projects = mutableListOf<Project>()
     private lateinit var projectAdapter: ProjectAdapter
+    private lateinit var projectDao: ProjectDao
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_screen)
+
+        // Initialize database and DAO
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "project-database"
+        ).build()
+        projectDao = db.projectDao()
 
         drawerLayout = findViewById(R.id.drawer_layout)
         projectRecyclerView = findViewById(R.id.projectRecyclerView)
@@ -55,37 +113,100 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         profileEmailTextView.text = "Email: mona@bittleco.com" // Replace with actual email
 
         // Set up RecyclerView
-        projectAdapter = ProjectAdapter(projects) { projectName ->
-            Toast.makeText(this, "Clicked on project: $projectName", Toast.LENGTH_SHORT).show()
-        }
+        projectAdapter = ProjectAdapter(projects, { project ->
+            val intent = Intent(this, ProjectToolsActivity::class.java)
+            intent.putExtra("project_name", project.name)
+            startActivity(intent)
+        }, { project ->
+            deleteProject(project)
+        })
         projectRecyclerView.adapter = projectAdapter
         projectRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        // Load projects from database
+        loadProjects()
 
         // Floating Action Button for adding new projects
         val fab: FloatingActionButton = findViewById(R.id.floatingActionButton)
         fab.setOnClickListener {
             showCreateProjectDialog()
         }
+
+        // Set up Bottom Navigation Bar
+        val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_projects -> {
+                    // Handle navigation to Projects
+                }
+                R.id.nav_activity -> {
+                    // Handle navigation to Activity Today
+                }
+                R.id.nav_photos -> {
+                    // Handle navigation to Photos
+                }
+                R.id.nav_insights -> {
+                    // Handle navigation to Insights
+                }
+            }
+            true
+        }
     }
 
+    @SuppressLint("MissingInflatedId")
     private fun showCreateProjectDialog() {
         val builder = AlertDialog.Builder(this)
         val view = layoutInflater.inflate(R.layout.dialog_create_project, null)
         val projectNameEditText = view.findViewById<EditText>(R.id.projectNameEditText)
+        val jobNumberEditText = view.findViewById<EditText>(R.id.jobNumberEditText)
 
         builder.setView(view)
             .setPositiveButton("Create") { dialog, _ ->
                 val projectName = projectNameEditText.text.toString()
-                if (projectName.isNotEmpty()) {
-                    projects.add(projectName)
-                    projectAdapter.notifyItemInserted(projects.size - 1)
+                val jobNumber = jobNumberEditText.text.toString()
+                if (projectName.isNotEmpty() && jobNumber.isNotEmpty()) {
+                    val newProject = Project(name = projectName, jobNumber = jobNumber, imageResId = R.drawable.iconsite)
+                    saveProject(newProject)
                 }
             }
             .setNegativeButton("Cancel", null)
             .show()
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    private fun loadProjects() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val loadedProjects = projectDao.getAllProjects()
+            projects.clear()
+            projects.addAll(loadedProjects)
+            runOnUiThread {
+                projectAdapter.notifyDataSetChanged()
+            }
+        }
+    }
+
+    private fun saveProject(project: Project) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val id = projectDao.insertProject(project)
+            project.id = id.toInt() // Assuming id is of type Long
+            projects.add(project)
+            runOnUiThread {
+                projectAdapter.notifyItemInserted(projects.size - 1)
+            }
+        }
+    }
+
+    private fun deleteProject(project: Project) {
+        CoroutineScope(Dispatchers.IO).launch {
+            projectDao.deleteProject(project)
+            val position = projects.indexOf(project)
+            projects.remove(project)
+            runOnUiThread {
+                projectAdapter.notifyItemRemoved(position)
+            }
+        }
+    }
+
+    override fun onNavigationItemSelected(item: android.view.MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_project_name -> {
                 // Navigate to Project Name screen
@@ -121,3 +242,9 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         }
     }
 }
+
+private fun Any.toInt(): Any {
+    TODO("Not yet implemented")
+
+}
+

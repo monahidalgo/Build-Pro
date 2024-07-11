@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.buildpro.databinding.ItemConstructionItemBinding
+import com.example.constructionsite.ConstructionItem
+import com.example.constructionsite.databinding.ItemConstructionItemBinding
+import com.example.buildpro.ConstructionAdapter.ConstructionItemViewHolder
 
 class ConstructionAdapter : RecyclerView.Adapter<ConstructionAdapter.ConstructionItemViewHolder>() {
 
@@ -28,7 +30,6 @@ class ConstructionAdapter : RecyclerView.Adapter<ConstructionAdapter.Constructio
 
     class ConstructionItemViewHolder(private val binding: ItemConstructionItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ConstructionItem) {
-            binding.constructionItem = item
             binding.itemName.text = item.name
             binding.itemQuantity.text = item.quantity.toString()
             // Load the image using Glide or another image loading library if necessary

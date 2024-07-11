@@ -2,4 +2,12 @@
 <resources>
     <item name="avatarImageView" type="id" />
     <item name="createAccountTextView" type="id" />
+    <item name="projectImageView" type="id" />
+    <item name="jobNumberTextView" type="id" />
+    <item name="deleteButton" type="id" />
+    <item name="bottom_navigation" type="id" />
+    <item name="nav_projects" type="id" />
+    <item name="nav_activity" type="id" />
+    <item name="nav_photos" type="id" /><item name="nav_insights" type="id" />
+    <item name="jobNumberEditText" type="id" />
 </resources>

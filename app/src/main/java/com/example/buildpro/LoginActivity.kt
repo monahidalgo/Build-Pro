@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buildpro.databinding.ActivityLoginBinding
+import com.example.constructionsite.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (validateLogin(username, password)) {
                 // Successful login, go to the next activity
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomeScreenActivity::class.java)
                 startActivity(intent)
             } else {
                 // Unsuccessful login, show error message

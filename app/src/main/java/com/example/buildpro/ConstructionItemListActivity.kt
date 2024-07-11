@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.buildpro.databinding.ActivityConstructionItemListBinding
+import com.example.constructionsite.ConstructionItem
+import com.example.constructionsite.R
+import com.example.constructionsite.databinding.ActivityConstructionItemListBinding
 
 class ConstructionItemListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConstructionItemListBinding
@@ -39,5 +41,10 @@ class ConstructionItemListActivity : AppCompatActivity() {
             ConstructionItem(9, "Electrical Wiring", "Wires, cables, and electrical components", 150,  R.drawable.iconsite.toString()),
             ConstructionItem(10, "Lumber", "Various types of wood for construction", 300,  R.drawable.team.toString())
         )
+    }
+
+    private fun ConstructionItem(id: Int, name: String, description: String, quantity: Int, item: String): ConstructionItem {
+
+        return ConstructionItem(id, name, description, quantity, item)
     }
 }
