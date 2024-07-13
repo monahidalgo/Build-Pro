@@ -18,14 +18,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    packagingOptions {
-        exclude("**/car-ui-lib-2.6.0/res/values/values.xml")
-        exclude("**/fragment-1.8.1/res/values/values.xml")
-        exclude("**/core-1.13.1/res/values/values.xml")
-        exclude("**/material-1.5.0/res/values/values.xml")
-        exclude("**/activity-1.9.0/res/values/values.xml")
-        // ... add other exclusions if needed
-    }
 
     buildTypes {
         release {
@@ -75,10 +67,13 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.car.ui.lib)
     implementation(libs.support.annotations)
+    implementation(libs.androidx.annotation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit.v113)
     androidTestImplementation(libs.androidx.espresso.core.v340)
     implementation(libs.material.v1xx)
     implementation(libs.androidx.fragment)
+    implementation(libs.androidx.room.runtime.v252) // Usethe latest version
+    annotationProcessor(libs.androidx.room.compiler)
     // ... other dependencies
 }

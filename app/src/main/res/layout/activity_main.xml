@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:autofillHints="username"
-            android:hint="@string/username"
+            android:hint="@string/user_name"
             android:inputType="text"
             android:maxWidth="300dp"
             android:minHeight="48dp"

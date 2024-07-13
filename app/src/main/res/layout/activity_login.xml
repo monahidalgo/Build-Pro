@@ -53,7 +53,7 @@
             android:id="@+id/create_account_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/don_t_have_an_account_create_one"
+            android:text="@string/dont_have_an_account_create_one"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

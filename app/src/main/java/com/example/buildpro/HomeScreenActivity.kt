@@ -34,28 +34,11 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun projectDao(): ProjectDao
 }
 
-class ProjectDao {
-    fun deleteProject(project: Project) {
 
 
-    }
-
-    fun getAllProjects(): Collection<Project> {
-            TODO("Not yet implemented")
-
-    }
-
-    fun insertProject(project: Project): Any {
-        TODO("Not yet implemented")
-
-    }
-
-}
-
-/*
 // DAO for Project
 interface ProjectDao {
-    @androidx.room.Query("SELECT * FROM ConstructionItem")
+    @androidx.room.Query("SELECT * FROM construction_items")
     suspend fun getAllProjects(): List<Project>
 
     @androidx.room.Insert
@@ -64,10 +47,10 @@ interface ProjectDao {
     @androidx.room.Delete
     suspend fun deleteProject(project: Project)
 }
-*/
-abstract class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    abstract val ProjectToolsActivity: Unit
+    abstract class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    abstract val ProjectToolsActivity: Intent
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var projectRecyclerView: RecyclerView
     private val projects = mutableListOf<Project>()
