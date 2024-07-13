@@ -3,7 +3,7 @@ package com.example.buildpro
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.constructionsite.ConstructionItem
+import com.example.buildpro.inventorymanagement.ConstructionItem
 
 class ConstructionItemViewModel : ViewModel() {
     private val _items = MutableLiveData<List<ConstructionItem>>()
@@ -13,3 +13,5 @@ class ConstructionItemViewModel : ViewModel() {
         _items.value = newItems
     }
 }
+
+

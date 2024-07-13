@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.constructionsite.CreateAccountActivity
+
 import com.example.constructionsite.R
 
 class MainActivity : AppCompatActivity() {
