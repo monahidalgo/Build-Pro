@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.constructionsite"
+    namespace = "com.example.buildpro"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.constructionsite"
+        applicationId = "com.example.buildpro"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

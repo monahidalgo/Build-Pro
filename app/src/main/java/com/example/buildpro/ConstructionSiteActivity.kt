@@ -2,7 +2,7 @@ package com.example.buildpro
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.constructionsite.R
+import com.example.buildpro.R
 
 class ConstructionSiteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

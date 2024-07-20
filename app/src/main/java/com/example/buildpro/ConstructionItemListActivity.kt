@@ -5,8 +5,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.buildpro.inventorymanagement.ConstructionItem
-import com.example.constructionsite.R
-import com.example.constructionsite.databinding.ActivityConstructionItemListBinding
+import com.example.buildpro.R
+import com.example.buildpro.databinding.ActivityConstructionItemListBinding
 
 class ConstructionItemListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConstructionItemListBinding

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.constructionsite.R
+import com.example.buildpro.R
 
 class ProjectAdapter(
     private val projects: MutableList<Project>,

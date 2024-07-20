@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buildpro.inventorymanagement.ConstructionItem
-import com.example.constructionsite.databinding.ItemConstructionItemBinding
+import com.example.buildpro.databinding.ItemConstructionItemBinding
 
 class ConstructionAdapter : RecyclerView.Adapter<ConstructionAdapter.ConstructionItemViewHolder>() {
 

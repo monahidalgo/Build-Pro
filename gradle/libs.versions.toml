@@ -28,7 +28,7 @@ roomKtx = "2.6.1"
 firebaseAuthKtx = "23.0.0"
 roomKtxVersion = "2.6.1"
 carUiLib = "2.6.0"
-roomRuntime = "2.5.2"
+roomRuntime = "2.6.1"
 supportAnnotations = "28.0.0"
 annotation = "1.8.0"
 
